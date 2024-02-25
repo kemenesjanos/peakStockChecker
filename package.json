@@ -28,6 +28,10 @@
     "dev": "nodemon",
     "start": "npm run build && cross-env NODE_ENV=production node build/server.js",
     "build": "tsc",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "docker-db-build": "docker build -t stock-checker-db -f Dockerfile ./",
+    "docker-db-run": "docker run -d --name stock-checker-db-container -p 5431:5432 stock-checker-db",
+    "docker-db-remove": "docker rm --force --volumes stock-checker-db-container",
+    "init-db": "npm run docker-db-remove && npm run docker-db-build && npm run docker-db-run"
   }
 }
