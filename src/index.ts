@@ -7,6 +7,7 @@ import validateEnv from "./utils/validateEnv";
 import { Request, Response } from "express";
 import helmet from "helmet";
 import cors = require("cors");
+import { stockRouter } from "./routes/stock.routes";
 
 dotenv.config();
 validateEnv();
@@ -17,6 +18,8 @@ app.use(errorHandler);
 app.use(helmet());
 app.use(cors());
 const { PORT = 3000 } = process.env;
+
+app.use("/stock", stockRouter);
 
 app.get("*", (req: Request, res: Response) => {
   res.status(505).json({ message: "Bad Request" });

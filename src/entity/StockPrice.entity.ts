@@ -14,7 +14,7 @@ export class StockPrice {
   @Column({ nullable: false })
   symbol: string;
 
-  @Column({ nullable: false })
+  @Column({ type: "real", nullable: false })
   price: number;
 
   @CreateDateColumn()
