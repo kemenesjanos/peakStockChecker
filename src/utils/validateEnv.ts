@@ -9,6 +9,7 @@ const validateEnv = () => {
     DB_USERNAME: str(),
     DB_HOST: str(),
     DB_NAME: str(),
+    ALPHA_VANTAGE_API_KEY: str(),
   });
 };
 
